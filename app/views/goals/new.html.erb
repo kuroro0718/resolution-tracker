@@ -1,1 +1,17 @@
 <h2>新增目標</h2>
+
+<%= simple_form_for @goal do |f| %>
+  <div class="form-group">
+    <%= f.input :title, input_html: { class: 'form-control' } %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.input :comment, input_html: { class: 'form-control' } %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.input :complete_date %>
+  </div>
+  
+  <%= f.button :submit, class: "btn btn-info" %>
+<% end %>
