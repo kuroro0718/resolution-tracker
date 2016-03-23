@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   before_action :find_params, only: [:edit, :show, :update, :destroy]
 
   def index
+    @goals = Goal.all
   end
 
   def new 
@@ -26,7 +27,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to @goal, notice: "修改完成"
+      redirect_to goals_path, notice: "修改完成"
     else
       render 'edit'
     end

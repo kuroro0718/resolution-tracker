@@ -1,3 +1,29 @@
 <h2>目標清單</h2>
+<div class="col-md-12">
+  <div class="group">
+    <%= link_to "新增目標", new_goal_path, class: "btn btn-primary pull-right" %>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>狀態</th>
+      <th>目標</th>
+      <th>預計完成時間</th>
+    </tr>
+  </thead>
 
-<%= link_to "新增目標", new_goal_path  %>
+  <tbody>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td><input type="checkbox" aria-label="..."></td>
+        <td><%= goal.title %></td> 
+        <td><%= goal.complete_date.to_s %></td>
+        <td>
+          <%= link_to "編輯", edit_goal_path(goal) %>
+          <%= link_to "刪除", "#" %>
+        </td>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>
