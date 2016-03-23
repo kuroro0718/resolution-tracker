@@ -21,7 +21,7 @@
         <td><%= goal.complete_date.to_s %></td>
         <td>
           <%= link_to "編輯", edit_goal_path(goal) %>
-          <%= link_to "刪除", "#" %>
+          <%= link_to "刪除", goal_path(goal), method: :delete, data: { confirm: "Are you sure?" } %>
         </td>
       </tr> 
     <% end %>
