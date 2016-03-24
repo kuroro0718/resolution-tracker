@@ -9,11 +9,11 @@
 <body>
 
 <%= render 'common/navbar' %>
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
+  
+<div class="container">
+  <%= notice_message %>
+  <%= yield %>
+</div>
 
 </body>
 </html>

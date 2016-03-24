@@ -20,7 +20,8 @@ class GoalsController < ApplicationController
     @goal = Goal.create(goal_params)
 
     if @goal.save
-      redirect_to goals_path
+      flash[:notice] = "新增目標完成"
+      redirect_to goals_path 
     else
       render 'new'
     end
@@ -28,7 +29,8 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      redirect_to goals_path, notice: "修改完成"
+      flash[:notice] = "修改目標完成"
+      redirect_to goals_path 
     else
       render 'edit'
     end
@@ -37,7 +39,8 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
 
-    redirect_to goals_path, notice: "己刪除目標"
+    flash[:warning] = "己刪除目標"
+    redirect_to goals_path 
   end 
 
   private
