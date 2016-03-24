@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :find_params, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.create(goal_params)
+    @goal = current_user.goals.create(goal_params)
 
     if @goal.save
       flash[:notice] = "新增目標完成"
@@ -50,6 +50,6 @@ class GoalsController < ApplicationController
   end
 
   def find_params
-    @goal = Goal.find(params[:id])
+    @goal = current_user.goals.find(params[:id])
   end
 end
