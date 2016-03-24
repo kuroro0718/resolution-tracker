@@ -1,4 +1,5 @@
 class GoalsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :edit, :create, :update, :destroy]
   before_action :find_params, only: [:edit, :show, :update, :destroy]
 
   def index
