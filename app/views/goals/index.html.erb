@@ -20,8 +20,9 @@
         <td><%= goal.title %></td> 
         <td><%= goal.complete_date.to_s %></td>
         <td>
-          <%= link_to "編輯", edit_goal_path(goal) %>
-          <%= link_to "刪除", goal_path(goal), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "編輯", edit_goal_path(goal), class: "btn btn-info" %>
+          <%= link_to "刪除", goal_path(goal), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <%= link_to "分享目標", new_goal_shared_mail_path(goal), class: "btn btn-warning" %>
         </td>
       </tr> 
     <% end %>

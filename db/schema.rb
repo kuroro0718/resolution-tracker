@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323060037) do
+ActiveRecord::Schema.define(version: 20160323131242) do
 
   create_table "goals", force: :cascade do |t|
     t.string   "title"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20160323060037) do
     t.date     "complete_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "shared_mails", force: :cascade do |t|
+    t.integer  "goal_id"
+    t.string   "mail_addr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,0 +1,9 @@
+<h2>分享目標</h2>
+
+<%= simple_form_for ([@goal, @shared_mail]) do |f| %>
+  <div class="form-group">
+    <%= f.input :mail_addr, input_html: { class: 'form-control' } %>  
+  </div>
+
+  <%= f.submit "提交", disable_with: "Submiting...", class: "btn btn-primary" %>
+<% end %>
