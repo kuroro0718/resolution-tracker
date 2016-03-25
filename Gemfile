@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'awesome_rails_console'
 gem 'devise', '~> 3.5', '>= 3.5.6'
+gem 'letter_opener', group: :development
 
 gem 'jquery-rails'
 gem 'turbolinks'

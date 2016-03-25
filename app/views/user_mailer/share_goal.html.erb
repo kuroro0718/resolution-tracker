@@ -1,0 +1,18 @@
+<h1>ResolutionTracker</h1>
+
+<p>
+  Hi 
+</p>
+
+<p>
+  以下是<%= @user %>的目標：
+  <ul>
+    <li>目標：<%= @goal.title%></li>
+    <li>預計完成日期：<%= @goal.complete_date %></li>
+  </ul>
+  <%= link_to @goal.title, "#" %>
+</p>
+
+<p>
+  請好好督促 <%= @user %> 喔！
+</p>

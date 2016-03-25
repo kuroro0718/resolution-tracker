@@ -9,6 +9,8 @@ class SharedMailsController < ApplicationController
     @shared_mail = @goal.shared_mails.build(mail_params)
 
     if @shared_mail.save
+      UserMailer.share_goal(@goal, @shared_mail).deliver_now!
+      flash[:notice] = "己發送信件"
       redirect_to goals_path()
     else
       render 'new'
