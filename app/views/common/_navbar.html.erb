@@ -1,26 +1,29 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-brand">
-      <%= link_to "ResolutionTracker", root_path %>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container ">
+    <div class="navbar-header">
+      <%= link_to "ResolutionTracker", root_path, class: "navbar-brand" %>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <% if !current_user %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-        <% else %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    
+    <ul class="nav navbar-nav navbar-right">
+      <% if !current_user %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% else %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Hi, <%= current_user.name %>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Settings", edit_user_registration_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>          
-            </ul>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>          
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+    
+    <% if user_signed_in? %>
+      <%= link_to "新增目標", new_goal_path, class: "navbar-text navbar-link" %>
+    <% end %>
   </div>
 </nav>

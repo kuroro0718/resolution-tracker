@@ -1,33 +1,33 @@
-<h2>目標清單</h2>
-<div class="col-md-12">
-  <div class="group">
-    <%= link_to "新增目標", new_goal_path, class: "btn btn-primary pull-right" %>
-  </div>
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>狀態</th>
-      <th>目標</th>
-      <th>預計完成時間</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @goals.each do |goal| %>
+<div class="col-md-10 col-md-offset-1">
+  <table class="table">
+    <thead>
       <tr>
-        <td><input type="checkbox" aria-label="..."></td>
-        <td><%= goal.title %></td> 
-        <td><%= goal.complete_date.to_s %></td>
-        <td>
-          <% if goal.editable_by?(current_user) %>
-            <%= link_to "編輯", edit_goal_path(goal), class: "btn btn-info" %>
-            <%= link_to "刪除", goal_path(goal), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-            <%= link_to "分享目標", new_goal_shared_mail_path(goal), class: "btn btn-warning" %>
-          <% end %>    
-        </td>
-      </tr> 
-    <% end %>
-  </tbody>
-</table>
+        <th>狀態</th>
+        <th>目標</th>
+        <th>預計完成時間</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @goals.each do |goal| %>
+        <tr>
+          <td>
+            <%= link_to complete_goal_path(goal),method: :patch do %>
+              <i class="fa fa-check"></i>
+            <% end %>
+          </td>
+          <td><%= goal.title %></td> 
+          <td><%= goal.complete_date.to_s %></td>
+          <td>
+            <% if goal.editable_by?(current_user) %>      
+              <%= link_to goal_path(goal), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="fa fa-trash-o"></i>
+              <% end %>
+            <% end %>    
+          </td>
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>  
+</div>
