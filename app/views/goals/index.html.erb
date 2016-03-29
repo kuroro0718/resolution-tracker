@@ -17,7 +17,7 @@
               <i class="fa fa-check"></i>
             <% end %>
           </td>
-          <td><%= goal.title %></td> 
+          <td><%= link_to goal.title, goal_path(goal) %></td> 
           <td><%= goal.complete_date.to_s %></td>
           <td>
             <% if goal.editable_by?(current_user) %>      

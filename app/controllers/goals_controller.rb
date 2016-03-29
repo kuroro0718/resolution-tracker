@@ -30,7 +30,7 @@ class GoalsController < ApplicationController
   def update
     if @goal.update(goal_params)
       flash[:notice] = "修改目標完成"
-      redirect_to goals_path 
+      redirect_to goal_path 
     else
       render 'edit'
     end
