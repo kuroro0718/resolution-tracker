@@ -1,9 +1,9 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :find_params, only: [:edit, :show, :update, :destroy]
+  before_action :find_params, only: [:edit, :show, :update, :destroy, :complete]
 
   def index
-    @goals = Goal.all
+    @goals = Goal.all.order("created_at DESC")
   end
 
   def new 
@@ -42,6 +42,11 @@ class GoalsController < ApplicationController
     flash[:warning] = "己刪除目標"
     redirect_to goals_path 
   end 
+
+  def complete
+    @goal.update_attribute(:completed_at, Time.now)
+    redirect_to goals_path
+  end
 
   private
 

@@ -7,4 +7,8 @@ class Goal < ActiveRecord::Base
   def editable_by?(user)
     user && user == owner
   end
+
+  def completed?
+    !completed_at.blank?
+  end
 end
