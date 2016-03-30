@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :find_params, only: [:edit, :show, :update, :destroy, :complete]
+  before_action :find_params, only: [:edit, :update, :destroy, :complete]
 
   def index
     @goals = Goal.all.order("created_at DESC")
@@ -11,6 +11,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    @goal = Goal.find(params[:id])
   end
 
   def edit
