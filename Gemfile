@@ -10,6 +10,8 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'awesome_rails_console'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'letter_opener', group: :development
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 gem 'jquery-rails'
 gem 'turbolinks'

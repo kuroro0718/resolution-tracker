@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329024515) do
+ActiveRecord::Schema.define(version: 20160406064838) do
 
   create_table "goals", force: :cascade do |t|
     t.string   "title"
     t.text     "comment"
     t.boolean  "is_shareable"
-    t.date     "complete_date"
+    t.text     "complete_date"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
