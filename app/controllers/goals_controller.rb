@@ -52,7 +52,9 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:title, :comment, :is_shareable, :complete_date)
+    params.require(:goal).permit(:title, :comment, :is_shareable, 
+      :complete_date, 
+      shared_mails_attributes: [:id, :mail_addr, :_destroy])
   end
 
   def find_params
