@@ -7,10 +7,8 @@
     <%= f.input :comment, input_html: { class: 'form-control' } %>
   </div>
   
-  <div class='input-group date datepicker'>
-    <%= f.text_field :complete_date, class: 'form-control' %>
-    <span class="input-group-addon">
-  </div>
 
+  <%= f.input :complete_date, as: :string, input_html: { class: 'datepicker' } %>
+  
   <%= f.button :submit, class: "btn btn-info" %>
 <% end %>
