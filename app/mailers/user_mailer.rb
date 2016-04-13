@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
     @owner = goal.owner
     @mail = shared_mail
 
-    mail(to: @mail.mail_addr, subject: "[ResolutionTracker] #{@owner}分享目標") 
+    mail(to: @mail.mail_addr, subject: "[ResolutionTracker] #{@owner}分享目標")   
   end
 end
