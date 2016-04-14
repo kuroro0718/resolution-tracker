@@ -5,14 +5,14 @@
 </p>
 
 <p>
-  以下是<%= @owner.name %>的目標：
+  以下是<%= @owner %>的目標：
   <ul>
-    <li>目標：<%= @goal.title%></li>
-    <li>預計完成日期：<%= @goal.complete_date %></li>
+    <li>目標：<%= @goal%></li>
+    <li>預計完成日期：<%= @complete_date %></li>
   </ul>
-  目標連結：<%= link_to @goal.title, "#" %>
+  目標連結：<%= link_to @goal, "#" %>
 </p>
 
 <p>
-  請好好督促 <%= @owner.name %> 喔！
+  請好好督促 <%= @owner %> 喔！
 </p>

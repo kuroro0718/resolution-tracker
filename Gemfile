@@ -12,6 +12,7 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'letter_opener', group: :development
 gem 'bootstrap-datepicker-rails'
 gem 'nested_form'
+gem 'sidekiq'
 
 gem 'jquery-rails'
 gem 'turbolinks'

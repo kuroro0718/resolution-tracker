@@ -1,9 +1,10 @@
 class UserMailer < ApplicationMailer
-  def share_goal(goal, shared_mail)
-    @goal = goal
-    @owner = goal.owner
-    @mail = shared_mail
+  def share_goal(owner, goal, complete_date, email)
+    @owner = owner
+    @goal = goal    
+    @complete_date = complete_date
+    @email = email
 
-    mail(to: @mail.mail_addr, subject: "[ResolutionTracker] #{@owner}分享目標")   
+    mail(to: @email, subject: "[ResolutionTracker] #{@owner}分享目標")   
   end
 end
