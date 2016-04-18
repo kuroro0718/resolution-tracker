@@ -1,11 +1,22 @@
 <h2>分享目標</h2>
-
+<div class="row">
 <%= nested_form_for @goal do |f| %>
   <%= f.fields_for :shared_mails do |mail_form| %>    
-    <%= mail_form.text_field :mail_addr %>
-    <%= mail_form.link_to_remove "Remove this mail address" %>
-  <% end %>
-  
-  <%= f.link_to_add "Add a mail address", :shared_mails %>
-  <%= f.submit "儲存email", disable_with: "Submiting...", class: "btn btn-primary" %>
-<% end %>
+    
+        
+      
+        <div class="col-sm-8">
+          <%= mail_form.text_field :mail_addr, class: 'form-control', :placeholder => "input email address" %>
+        </div>
+        <div class="col-sm-2">
+          <%= mail_form.link_to_remove "Remove" %>
+        </div>
+
+      <% end %>
+    </div> 
+      <br>
+      <%= f.link_to_add "Add Email", :shared_mails %>
+      <%= f.submit "Save Email", disable_with: "Submiting...", class: "btn btn-primary" %>
+    <% end %>
+
+
