@@ -6,8 +6,7 @@
     <%= link_to "上一頁", goals_path  %>
     <% if @goal.editable_by?(current_user) %>
       <%= link_to "編輯", edit_goal_path(@goal) %>
-      <%= link_to "分享目標", new_goal_shared_mail_path(@goal) %>
-      <%= link_to "寄送郵件", notify_friend_goal_path(@goal), method: :post %>
+      <%= link_to "分享目標", new_goal_shared_mail_path(@goal) %>      
     <% end %>
   </div>
 </div>

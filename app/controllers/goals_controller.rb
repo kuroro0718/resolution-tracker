@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :find_params, only: [:edit, :update, :destroy, :complete, :notify_friend]
+  after_action :notify_friend, only: [:new, :update]
 
   def index
     @goals = Goal.all.order("created_at DESC")
@@ -29,7 +30,7 @@ class GoalsController < ApplicationController
   end
 
   def update
-    if @goal.update(goal_params)      
+    if @goal.update(goal_params) 
       flash[:notice] = "修改目標完成"
       redirect_to goal_path 
     else
@@ -50,20 +51,7 @@ class GoalsController < ApplicationController
   end
 
   def notify_friend   
-    mail_list = {}
-    count = 0
-    for email in @goal.shared_mails
-      mail_list[count.to_s] = email.mail_addr
-      count+=1
-    end
-
-    h = JSON.generate({ 'owner' => @goal.owner.name,
-                        'goal' => @goal.title,
-                        'complete_date' => @goal.complete_date,
-                        'email' => mail_list })
-
-    SendEmailJob.perform_now(h)
-    redirect_to goals_path
+    SendEmailJob.perform_now(generate_json_params)
   end
 
   private
@@ -76,5 +64,19 @@ class GoalsController < ApplicationController
 
   def find_params
     @goal = current_user.goals.find(params[:id])
+  end
+
+  def generate_json_params
+    mail_list = {}
+    count = 0
+    for email in @goal.shared_mails
+      mail_list[count.to_s] = email.mail_addr
+      count+=1
+    end
+
+    h = JSON.generate({ 'owner' => @goal.owner.name,
+                        'goal' => @goal.title,
+                        'complete_date' => @goal.complete_date,
+                        'email' => mail_list })
   end
 end
