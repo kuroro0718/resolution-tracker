@@ -1,0 +1,26 @@
+// Place all the styles related to the goals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin bold_font {
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#goal_show {
+  .title {
+    @include bold_font;
+    color: #78594B;
+    font-size: 2.0rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1.0px solid rgba(82,158,204, 0.2);
+    text-align: center;
+  }
+  p {
+    font-size: 1.0rem;
+    line-height: 1.75;
+    margin-left: 1.25rem;
+  }
+}
