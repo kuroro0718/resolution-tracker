@@ -4,7 +4,7 @@ class Goal < ActiveRecord::Base
   has_many :shared_mails
   belongs_to :owner, class_name: "User", foreign_key: :user_id
   
-  accepts_nested_attributes_for :shared_mails, allow_destroy: true
+  accepts_nested_attributes_for :shared_mails, reject_if: proc { |attributes| attributes['mail_addr'].blank? }, allow_destroy: true
 
   def editable_by?(user)
     user && user == owner
