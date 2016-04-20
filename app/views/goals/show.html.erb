@@ -1,5 +1,6 @@
 <div class="col-md-10 col-md-offset-1" id="goal_show">
   <h3><%= @goal.title %></h3>
+  <p class="owner-name">Own By <%= @goal.owner.name %> Expected Complete On <%= @goal.complete_date %></p>
   <p><%= simple_format(@goal.comment) %></p>
 
   <div class="col-md-4 col-md-offset-4">

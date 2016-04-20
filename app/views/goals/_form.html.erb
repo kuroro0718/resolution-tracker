@@ -9,6 +9,6 @@
   
   <%= f.input :complete_date, as: :string, input_html: { class: 'datepicker' } %>
   
-  <%= link_to "Cancel", goals_path %>
+  <%= link_to "Cancel", goals_path, class: "btn btn-default" %>
   <%= f.button :submit, class: "btn btn-info" %>
 <% end %>
