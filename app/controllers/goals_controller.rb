@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :find_params, only: [:edit, :update, :destroy, :complete, :notify_friend]
-  after_action :notify_friend, only: [:new, :update]
+  before_action :find_params, only: [:edit, :update, :destroy, :complete]
+  after_action :notify_friend, only: [:update]
 
   def index
     @goals = Goal.all.order("created_at DESC")
