@@ -66,14 +66,8 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.find(params[:id])
   end
 
-  def generate_json_params
-    mail_list = {}
-    count = 0
-    for email in @goal.shared_mails
-      mail_list[count.to_s] = email.mail_addr
-      count+=1
-    end
-
+  def generate_json_params    
+    mail_list = Hash[ @goal.shared_mails.map.with_index {|x, i| [i, x.mail_addr]}]
     h = JSON.generate({ 'owner' => @goal.owner.name,
                         'goal' => @goal.title,
                         'complete_date' => @goal.complete_date,
